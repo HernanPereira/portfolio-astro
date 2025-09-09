@@ -1,6 +1,38 @@
 ---
+// import marianaMassimino from '../assets/mariana-massimino.svg';
+import NavItem from "./NavItem.astro";
+
+const navItems = [
+  { href: '/portfolio/', label: 'Portfolio' },
+  { href: '/about-me/', label: 'About Me' },
+  { href: '/experience/', label: 'Experience' },
+];
 ---
 
-<header>
-  header
+<header class="" transition:animate="none">
+  <div class="header-content flex justify-between items-center p-10 pl-4 pr-4">
+    <div class="left-section flex items-center gap-4">
+      <div>
+        <a href="/">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="32" fill="#00FFE0"/>
+            <path d="M26.334 28.474H26.23L24.826 31.36L21.108 38.224L17.39 31.36L15.986 28.474H15.882V41.5H12.632V23.352H16.506L21.16 32.218H21.264L25.866 23.352H29.584V41.5H26.334V28.474ZM47.5606 28.474H47.4566L46.0526 31.36L42.3346 38.224L38.6166 31.36L37.2126 28.474H37.1086V41.5H33.8586V23.352H37.7326L42.3866 32.218H42.4906L47.0926 23.352H50.8106V41.5H47.5606V28.474Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
+      <div class="hidden md:block">
+        <span class="uppercase font-semibold">Mariana Massimino</span> • Product designer
+      </div>
+    </div>
+
+    <div class="right-section">
+      <ul class="flex items-center gap-6">
+        { navItems.map(item => (<NavItem href={item.href} label={item.label} />)) }
+        <!-- { navItems.map(item => (<NavItem href={item.href} label={item.label} mobile />)) } -->
+      </ul>
+    </div>
+  </div>
 </header>
+
+<style>
+</style>

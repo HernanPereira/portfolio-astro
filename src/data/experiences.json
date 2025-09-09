@@ -1,0 +1,240 @@
+[
+  {
+    "company": "Globant",
+    "position": "UX Designer",
+    "projects": [
+      {
+        "client": "Quiddiya City - Parks",
+        "startDate": "Feb 2025",
+        "endDate": "Present",
+        "totalTime": "",
+        "list": [
+          "Refine and optimize user flows by identifying edge cases, usability gaps, and improvement opportunities across key product journeys.",
+          "Document features thoroughly, including use cases, interaction behaviors, ensuring alignment across product and engineering teams.",
+          "Prototype detailed interactions to communicate flows and functionality with clarity—supporting both stakeholder alignment and developer handoff.",
+          "Collaborate closely with the Design System team, contributing to the creation and refinement of reusable components to meet new feature requirements.",
+          "Act as a bridge between product, design, and development—helping ensure that design decisions scale across platforms while remaining user-centered."
+        ],
+        "description": "User flow optimization, Edge case analysis, UX documentation, Interactive prototyping, Developer collaboration, Design system integration, Cross-functional alignment, Usability improvements, Interaction design"
+      },
+      {
+        "client": "Banco Santander - OneWeb Experience Team",
+        "startDate": "Oct 2023",
+        "endDate": "Feb 2025",
+        "totalTime": "(15 months)",
+        "list": [
+          "Contributed to the full design process—from wireframes to high-fidelity mockups—while enhancing and evolving shared design system components.",
+          "Collaborated on key projects like Global Position, Accounts & Cards, working with cross-functional teams across four European countries to create a unified user experience.",
+          "Actively participated in user research, including designing test plans, executing tests, and analyzing results to inform design decisions.",
+          "Presented design concepts to stakeholders, helping ensure alignment and consistency across multiple Santander European markets."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Freelance",
+    "position": "UX/Product Designer",
+    "projects": [
+      {
+        "client": "Voter's Edge",
+        "startDate": "May 2023",
+        "endDate": "Aug 2023",
+        "totalTime": "(4 months)",
+        "list": [
+          "Analyzed and improved the information architecture to support clearer navigation and content discoverability.",
+          "Planned and ran an unmoderated usability test using Maze prototypes, gathering insights to validate design decisions.",
+          "Handled end-to-end design—from initial wireframes to final visuals—while maintaining consistency through design system contributions."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "",
+    "position": "UX/Product Designer",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://www.proper.ai/\" target=\"_blank\">Proper AI</a>",
+        "startDate": "Jul 2022",
+        "endDate": "Mar 2023",
+        "totalTime": "(9 months)",
+        "list": [
+          "Based on researched use cases, created a roadmap for implementation, in addition to developing user stories for development, to improve Salesforce CRM customization.",
+          "Designed and developed dashboards using data from various sources, such as Facebook, LinkedIn, GA4, and Salesforce. These dashboards helped inform roadmap decisions for top and middle funnel analysis.",
+          "Mapped a service blueprint to identify dependencies and bottlenecks between areas, providing insights for process optimization and potential improvements to customer experience.",
+          "Created user flows and user stories to support the implementation of marketing and sales strategies in top and middle of the funnel.",
+          "Created and implemented an integration plan between Salesforce CRM and outreach, which included ensuring correct data integrity between systems. Additionally, automated sequence creation was implemented to accelerate conversion as part of the output."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "",
+    "position": "Head of Product",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://www.fromdoppler.com/en/\" target=\"_blank\">Doppler - Email, Automation and Data Marketing</a>",
+        "startDate": "Nov 2021",
+        "endDate": "Apr 2022",
+        "totalTime": "(6 months)",
+        "list": [
+          "Mapped and created comprehensive service blueprints to accurately identify areas of weakness and opportunities for optimization.",
+          "Crafted precise user stories as part of the roadmap definition, breaking epics into smaller stories to ensure short-term value deliverability.",
+          "Integrated Productboard Insights with Zendesk and Hotjar Surveys to centralize user insights, streamline the prioritization process, increase team visibility, and enhance collaboration.",
+          "Led the implementation of Agile methodologies, allowing for increased productivity and efficiency within the team.",
+          "Conducted user research and synthesized findings into actionable insights, informing the product roadmap and development decisions.",
+          "Collaborated with cross-functional teams to ensure alignment and seamless execution of product strategy."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "",
+    "position": "UX/UI Designer",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://www.proper.ai/\" target=\"_blank\">Proper AI</a>",
+        "startDate": "Jul 2019",
+        "endDate": "Nov 2021",
+        "totalTime": "(2 years 5 months)",
+        "list": [
+          "Mapped the customer journey and implemented processes to enhance key metric tracking and overall performance.",
+          "Developed a Google Data Studio dashboard to analyze and track sales and marketing funnel KPIs, integrating data from the company's Facebook, LinkedIn, and Salesforce accounts.",
+          "Designed an invoice processing feature for the company's desktop web app, which included wireframes, interactive prototypes, and user testing.",
+          "Created and maintained a shared design system that includes typography, color palette, UI components, and use cases.",
+          "Designed the company's website, with iterative improvements based on qualitative and quantitative data analysis.",
+          "Crafted custom motion graphics and animations for the company's website, pitch decks, and social media ads.",
+          "Ideated and designed various digital marketing materials, including landing pages, ads, and sales pages.",
+          "Designed pitch decks and additional materials to support the company's fundraising efforts."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Freelance through Toptal",
+    "position": "UX/UI Designer",
+    "projects": [
+      {
+        "client": "Estars Sports",
+        "startDate": "Mar 2019",
+        "endDate": "Aug 2019",
+        "totalTime": "(6 months)",
+        "list": [
+          "Developed the UX and UI interface for a chat feature, including UX flow, micro-interactions, style guidelines, and other elements, optimized for both desktop and mobile platforms.",
+          "Created a Live Esports Contest web flow, incorporating essential UI views based on established user stories.",
+          "Designed a comprehensive wallet page interface, encompassing payment methods, transaction views, complete UI components, and interactions, among other essential features.",
+          "Crafted a player performance stats page for Dota, LoL, CS:GO, and Fortnite games, featuring UI graphics, detailed statistics, and custom assets for each game.",
+          "Illustrated a custom set of weapons for a mini web game, enhancing the user experience with visually and engaging elements.",
+          "Designed and developed dedicated promotional landing pages for the anticipated launch of Estars website, showcasing the brand's value proposition and driving user engagement."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Freelance through Toptal",
+    "position": "UX/UI Designer",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://www.invoca.com/\" target=\"_blank\">Invoca</a>",
+        "startDate": "Sep 2018",
+        "endDate": "Nov 2018",
+        "totalTime": "(3 months)",
+        "list": [
+          "Designed a high-quality responsive SaaS landing page optimized for lead generation, including the confirmation flow, as well as custom static and animated assets. Additionally, I created interaction component guidelines to ensure consistency and facilitate development.",
+          "Designed a 13-page playbook, which included the creation of a specially-designed set of illustrations to enhance the narrative. Produced two distinct versions for digital and print use, with careful attention given to correct folding imposition of the pages.",
+          "Produced an engaging animated video that aligns with the brand's voice and tone for the annual company conference."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "",
+    "position": "Head of Design",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://www.fromdoppler.com/en/\" target=\"_blank\">Doppler - Email, Automation and Data Marketing</a>",
+        "startDate": "Oct 2016",
+        "endDate": "Mar 2019",
+        "totalTime": "(2 years 6 months)",
+        "list": [
+          "Led the product creation process from a UX perspective, ensuring user-centric design principles throughout the development lifecycle.",
+          "Developed and managed the design team's productivity and continuous improvement using Jira, streamlining processes and promoting a culture of innovation.",
+          "Built and maintained a robust design system for the design and development teams, ensuring consistency and efficiency across all products and features.",
+          "Collaborated with stakeholders to brainstorm, shape, and iterate new features, aligning them with business goals and user needs.",
+          "Conducted research, prototyping, design, testing, and launch activities for new features and flow improvements into the Doppler's web app, providing exceptional user experiences.",
+          "Worked closely with a diverse team of engineers for accurate design implementations.",
+          "Designed stationary marketing flows tailored to business goals, driving conversions and revenue growth.",
+          "Led and implemented user testing, card sorting sessions, and other research methods to define ideations and improvements, providing data-driven insights.",
+          "Redesigned the company's corporate website and its iterations, creating a modern, user-friendly design that aligned with the brand's vision."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "",
+    "position": "UX/UI Designer",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://makingsense.com/\" target=\"_blank\">MakingSense LLC</a>",
+        "startDate": "Jul 2012",
+        "endDate": "Sep 2016",
+        "totalTime": "(4 years 3 months)",
+        "list": [
+          "Conceptualized and designed marketing campaigns tailored to business goals, ranging from complex marketing flows to single digital ads.",
+          "Redefined the marketing strategy to drive product sales and empower the brand, focusing on market research, user personas, and data-driven insights.",
+          "Designed websites and landing pages focused on driving conversions and providing an exceptional user experience.",
+          "Ideated and implemented storytelling through custom illustration and animation to create memorable brand experiences and improve engagement.",
+          "Designed responsive marketing emails and newsletters, incorporating email marketing best practices to maximize engagement and conversions.",
+          "Created customizable landing page templates for use within the company's web app LanderApp, allowing users to quickly create effective landing pages to promote their offerings."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Front-end developer",
+    "position": "UX/UI & Graphic Designer",
+    "projects": [
+      {
+        "client": "<a class=\"underline hover:no-underline\" href=\"https://plano41.com.ar/\" target=\"_blank\">Plano41</a>",
+        "startDate": "Jan 2010",
+        "endDate": "Sep 2012",
+        "totalTime": "(2 years 9 months)",
+        "list": [
+          "Designed and programmed responsive websites for various small companies.",
+          "Created logotypes and visual identities, including their implementation guideline manual.",
+          "Devised custom illustrations for print and digital use, including posters, brochures, websites, and pitch decks.",
+          "Illustrated custom iconography from scratch to follow the brand tone.",
+          "Designed diverse types of printed graphic material, such as brochures, flyers, posters, and more."
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "company": "Front-end developer",
+    "position": "UX/UI Designer",
+    "projects": [
+      {
+        "client": "Agostini-Verini (Currently <a class=\"underline hover:no-underline\" href=\"https://the-bloom.net/\" target=\"_blank\">The Bloom</a>)",
+        "startDate": "Jan 2006",
+        "endDate": "Oct 2010",
+        "totalTime": "(4 years 10 months)",
+        "list": [
+          "Contributed to the successful launch of promotional campaigns for major films, including KungFu Panda in LATAM.",
+          "Designed and implemented interactive elements and animations for promotional websites, with a strong focus on gamification to drive engagement.",
+          "Developed websites with meticulous attention to micro-interactions.",
+          "Crafted visual identities and accompanying implementation guidelines for a variety of smaller brands."
+        ],
+        "description": ""
+      }
+    ]
+  }
+]

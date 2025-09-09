@@ -1,0 +1,173 @@
+---
+import data from '../data/quotes.json';
+---
+
+<div class="swiper-body pl-4 pr-4 opacity-0">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        data.map(item => {
+          const { quote, who } = item;
+          return (
+            <div class="swiper-slide columns-3xl max-w-3xl">
+              <div class="flex flex-col gap-6">
+                { quote && <div class="font-serif font-light text-2xl leading-[160%]">{ quote }</div> }
+                { who && <div class="font-semibold">— { who }</div> }
+              </div>
+            </div>
+          )
+        })
+      }
+      <!-- <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div> -->
+    </div>
+    <!-- <div class="swiper-pagination"></div> -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-scrollbar"></div> -->
+  </div>
+</div>
+
+<style>
+  .swiper-body{
+    position: relative;
+    /* height: 600px; */
+  }
+  /* .swiper {
+    width: 100%;
+    height: 100%;
+  } */
+  .swiper-slide {
+    padding: 32px 56px 32px 35px;
+    border-left: 5px solid var(--color-highlight);
+  }
+  .swiper-wrapper .swiper-slide.swiper-slide-prev {
+    /* opacity: 0; */
+  }
+
+  .swiper-body .swiper-button-next, 
+  .swiper-body .swiper-button-prev {
+    opacity: 0;
+    transition: all linear 0.25s;
+  }
+  .swiper-body:hover .swiper-button-next, 
+  .swiper-body:hover .swiper-button-prev {
+    opacity: 1;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    content: '';
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    text-align: center;
+    line-height: 24px;
+  }
+  .swiper-button-next::after {
+    content: url(../assets/icons/arrow-left.svg);
+  }
+  .swiper-button-prev::after {
+    content: url(../assets/icons/arrow-right.svg);
+  }
+  .swiper-button-next::before,
+  .swiper-button-prev::before {
+    content: '';
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-highlight);
+    position: absolute;
+    bottom: 0;
+    transition: all linear 0.15s;
+  }
+
+  .swiper-button-prev:hover::before,
+  .swiper-button-next:hover::before {
+    height: 14px;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  function getContainerMargin() {
+    const container = document.getElementById('about-us-container');
+    if (!container) return 100; // valor por defecto
+    const containerStyles = window.getComputedStyle(container);
+    return parseInt(containerStyles.marginLeft);
+  }
+
+  let swiper: any;
+
+  function loadSwiper() {
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+
+    swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination],
+      slidesPerView: "auto",
+      centeredSlides: false,
+      spaceBetween: 32,
+      loop: true,
+      slidesOffsetBefore: getContainerMargin(),
+      slidesOffsetAfter: 0,
+      speed: 500,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  }
+
+  function handleResize() {
+    if (swiper) {
+      swiper.params.slidesOffsetBefore = getContainerMargin();
+      swiper.update();
+    }
+  }
+
+  // Eventos de Astro para la carga inicial y navegación
+  ['astro:page-load', 'astro:after-swap'].forEach(event => {
+    document.addEventListener(event, loadSwiper);
+
+    const el = document.querySelectorAll('.swiper-body')[0];
+    setTimeout(() => {
+      el.classList.add('transition', 'duration-500', 'ease-linear', 'opacity-100');
+      el.classList.remove('opacity-0');
+    }, 100);
+  }
+  );
+
+  // Debounce function para mejorar el rendimiento
+  function debounce<T extends (...args: any[]) => any>(
+    func: T,
+    wait: number
+  ): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    
+    return function executedFunction(this: any, ...args: Parameters<T>): void {
+      const later = () => {
+        clearTimeout(timeout);
+        func.apply(this, args);
+      };
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Evento resize para actualizar el offset con debounce
+  window.addEventListener('resize', debounce(handleResize, 150));
+</script>

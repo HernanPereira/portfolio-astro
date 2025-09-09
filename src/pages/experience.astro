@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import data from '../data/experiences.json';
+
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Experience Page" description="Experience Page Description">
+  <main class="flex flex-col pl-4 pr-4 pt-20 pb-30 border-t-5 border-lime-500 sm:border-purple-500 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
+    <div class="container mx-auto pl-4 pr-4">
+      <div class="columns-3xl max-w-3xl">
+        {
+          data.map(item => {
+            const { company, position, projects } = item;
+
+            return (
+              <div class="experience mb-20 last:mb-0 bg-white">
+                <h2 class="text-xl font-semibold mb-2">{position && position} {company && `| ${company}`}</h2>
+                {
+                  projects.map(project => {
+                    const { client, startDate, endDate, totalTime, list, description } = project;
+
+                    return (
+                      <div class="project">
+                        <h3 class="mb-2 font-medium" set:html={client}>{client && client}</h3>
+                        <p class="date mb-4">{startDate && startDate} - {endDate && endDate} {totalTime && ` ${totalTime}`}</p>
+                        { list && (
+                          <ul>
+                            { list.map((item) => (
+                              <li class="leading-(--line-height-150) mb-2 last:mb-0 before:content-['•']">{item}</li>
+                            )) }
+                          </ul>
+                        ) }
+                        { description && <p class="description mt-8 font-normal italic">{description}</p> }
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .experience .date,
+  .experience .description {
+    color: var(--color-light);
+  }
+
+  .experience .project {
+    border-bottom: 1px dashed #000000;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+
+  .experience .project:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .experience .project ul li::before {
+    margin-right: 8px;
+  }
+</style>

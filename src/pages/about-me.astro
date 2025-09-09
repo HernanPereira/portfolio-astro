@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Quotes from '../components/Quotes.astro'
+
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="About Me Page" description="About Me Page Description">
+  <main class="flex flex-col pt-20 pb-30 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
+
+    <div id="about-us-container" class="container mx-auto pl-4 pr-4">
+      <div class="columns-3xl max-w-3xl">
+        <h1 class="font-semibold mb-4 inline-block">Hi there!</h1>
+        <h2 class="font-semibold mb-16">I'm Mariana Massimino, Product Designer</h2>
+        <h3 class="font-serif font-light text-[32px] leading-[150%] mb-16">I have learned that making the right questions is sometimes the hardest thing to do</h3>
+        <div class="mb-16">
+          <h4 class="font-semibold">My skill set</h4>
+          <p>My skill set goes from UI design to wireframing, prototyping, user and service flows, data analysis, marketing campaigns and more (I look like a Swiss Army Knife of skills 😋). What that really means is I ask a lot of questions, test ideas fast, and shape solutions that make sense for both users and the business.</p>
+        </div>
+        <div class="mb-16">
+          <h4 class="font-semibold">The tool box</h4>
+          <p class="mb-8">I used to have a funny paragraph listing all the tools I know how to use, but here’s the thing: tools are just a means to an end. They don’t define you as a professional—though they do say something about your curiosity and adaptability. And yes, I’ve mastered plenty of tools (probably too many 🙃)—some I still use every day, others that came and went.</p>
+          <p>Now, with AI in the mix, picking up a new tool—or even setting up a process to take care of the repetitive stuff—has never been easier. But again, none of that really matters if you’re not asking the right question.</p>
+        </div>
+        <h3 class="font-serif font-light text-[32px] leading-[150%] mb-16">The truth is, tools are just there to make the process smoother, save me time, and let me focus on what really matters: finding the right solutions.</h3>
+        <div class="mb-10">
+          <h4 class="font-semibold">Working together</h4>
+          <p>I like to think that all these flattering statements about me aren’t just my own perception—they’re a collaboration: a dash of self-esteem 🙈 mixed with plenty of input from the people I work with 🤩</p>
+        </div>
+      </div>
+
+    </div>
+
+    <Quotes />
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    background: #FFFFFF;
+    background: linear-gradient(180deg,#ffffff 60%, var(--color-highlight) 60%);
+  }
+</style>
