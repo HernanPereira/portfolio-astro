@@ -1,0 +1,161 @@
+---
+import data from '../data/projects.json';
+import { Image } from 'astro:assets';
+
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-components'
+// Remove static import of image folder
+---
+
+<div class="swiper-body pl-4 opacity-0">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        data.map(item => {
+          const { tag, image, title, copy } = item;
+
+          return (
+            <div class="swiper-slide columns-3xl max-w-3xl">
+              <div class="flex flex-col gap-6">
+                { tag && <div class="">{ tag }</div> }
+                { image && <Image src={import(`../assets/projects/${image}`)} alt={ title } /> }
+                { title && <div class="">{ title }</div> }
+                { copy && <div class="">{ copy }</div> }
+              </div>
+            </div>
+          )
+        })
+      }
+      <div class="swiper-slide columns-3xl max-w-3xl">
+        ... a carousel only for 4 items? Everything has an explanation. <span class="open-modal font-bold cursor-pointer underline hover:no-underline" data-modal-trigger="modal-id">Find out why</span>
+      </div>
+    </div>
+    <!-- <div class="swiper-pagination"></div> -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-scrollbar"></div> -->
+  </div>
+</div>
+
+<Modal id="modal-id" size="full">
+  <ModalHeader>
+    <h4>Modal Title</h4>
+  </ModalHeader>
+  <ModalBody>
+    <p>
+      This is the modal body. You can add any content here.
+    </p>
+  </ModalBody>
+  <!-- <ModalFooter>
+    <Button label="Close" data-modal-close />
+  </ModalFooter> -->
+</Modal>
+
+<style>
+  .swiper-body{
+    /* position: relative; */
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  function getContainerMargin() {
+    const container = document.getElementById('heading');
+    if (!container) return 100; // valor por defecto
+    const containerStyles = window.getComputedStyle(container);
+    return parseInt(containerStyles.marginLeft);
+  }
+
+  let swiper: any;
+
+  function loadSwiper() {
+    const swiperBody = document.querySelector('.swiper-body');
+
+    // Destruir la instancia anterior si existe
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+
+    // Crear nueva instancia usando la variable global
+    swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination],
+      on: {
+        init: function () {
+          swiperBody?.classList.remove('opacity-0');
+        },
+      },
+      spaceBetween: 32,
+      slidesOffsetBefore: getContainerMargin(),
+      slidesOffsetAfter: getContainerMargin(),
+      slidesPerView: 3.41,
+      slidePrevClass: 'opacity-0',
+      breakpoints: {
+        // 320: {
+        //   slidesPerView: 2,
+        //   spaceBetween: 20
+        // },
+        // 480: {
+        //   slidesPerView: 3,
+        //   spaceBetween: 30
+        // },
+        // 640: {
+        //   slidesPerView: 4,
+        //   spaceBetween: 40
+        // }
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  }
+
+  function handleResize() {
+    if (swiper) {
+      swiper.params.slidesOffsetBefore = getContainerMargin();
+      swiper.params.slidesOffsetAfter = getContainerMargin();
+      swiper.update();
+    }
+  }
+  
+  // Eventos de Astro para la carga inicial y navegación
+  ['astro:page-load', 'astro:after-swap'].forEach(event => {
+    document.addEventListener(event, loadSwiper);
+  });  
+
+  // Debounce function para mejorar el rendimiento
+  function debounce<T extends (...args: any[]) => any>(
+    func: T,
+    wait: number
+  ): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    
+    return function executedFunction(this: any, ...args: Parameters<T>): void {
+      const later = () => {
+        clearTimeout(timeout);
+        func.apply(this, args);
+      };
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Crear una referencia al handler con debounce
+  const debouncedResize = debounce(handleResize, 150);
+
+  // Evento resize para actualizar el offset con debounce
+  window.addEventListener('resize', debouncedResize);
+
+  // Limpiar los event listeners cuando se desmonte el componente
+  document.addEventListener('astro:before-swap', () => {
+    window.removeEventListener('resize', debouncedResize);
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+  });
+</script>

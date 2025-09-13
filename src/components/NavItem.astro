@@ -19,34 +19,31 @@ const isMobile = mobile ? 'movile-nav-item' : 'nav-item';
 </li>
 
 <style>
-  .nav-item {
-    transition: background-color linear 0.5s;
-    display: flex;
-    background-color: #FFFFFF;
-  }
-
-  .nav-item:hover {
-    background-color: var(--color-highlight);
-  }
-
-  .nav-item.active:hover {
-    background: #FFFFFF;
-    background: linear-gradient(180deg, #ffffff 60%, var(--color-highlight) 60%);
-  }
-  
-  .nav-item.active {
-    pointer-events: none;
-    cursor: pointer;
-    background: #FFFFFF;
-    background: linear-gradient(180deg,#ffffff 60%, var(--color-highlight) 60%);
-  }
-
-  .nav-item.active:focus {
-    background: #FFFFFF;
-  }
-
-  .nav-item:focus {
-    outline: 2px solid var(--color-active);
-    border-radius: 2px;
-  }
+.nav-item {
+  background: transparent;
+  display: flex;
+  background: linear-gradient(to top, var(--color-highlight) 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition:all 0.25s linear;
+}
+.nav-item:hover {
+  background-position: bottom;
+}
+.nav-item.active {
+  pointer-events: none;
+  cursor: pointer;
+  background: #FFFFFF;
+  background: linear-gradient(180deg,transparent 60%, var(--color-highlight) 60%);
+}
+.nav-item.active:hover {
+  background: transparent;
+  background: linear-gradient(180deg, transparent 60%, var(--color-highlight) 60%);
+}
+.nav-item.active:focus {
+  background: transparent;
+}
+.nav-item.active:focus {
+  background: transparent;
+}
 </style>

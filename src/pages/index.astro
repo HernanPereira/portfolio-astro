@@ -1,6 +1,7 @@
 ---
 // import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Experiences from '../components/Experiences.astro'
 
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -9,14 +10,12 @@ import Layout from '../layouts/Layout.astro';
 	<!-- <Welcome /> -->
 	
 		<main class="flex flex-col pt-20 pb-30 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
-			<div class="container mx-auto pl-4 pr-4">
+			<div id="heading" class="container mx-auto pl-4 pr-4">
 				<div class="heading font-serif font-light text-[70px] leading-[130%] columns-auto max-w-auto lg:columns-[868px] lg:max-w-[868px] mb-24">
 					<h1>Good design should feel right for the user and make sense for the business</h1>
 				</div>
-				<div class="carousel">
-					carousel!!
-				</div>
 			</div>
+
+			<Experiences />
 		</main>
-	
 </Layout>

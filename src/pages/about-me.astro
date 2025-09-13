@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Quotes from '../components/Quotes.astro'
+import data from '../data/quotes.json';
+
+import gif from '../assets/gif.jpg';
+// import Quotes from '../components/Quotes.astro'
 
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -28,16 +31,59 @@ import Quotes from '../components/Quotes.astro'
           <p>I like to think that all these flattering statements about me aren’t just my own perception—they’re a collaboration: a dash of self-esteem 🙈 mixed with plenty of input from the people I work with 🤩</p>
         </div>
       </div>
-
     </div>
 
-    <Quotes />
+    <div class="container mx-auto pl-4 pr-4">
+      <div class="grid lg:grid-cols-12 lg:grid-rows-1 gap-4 mb-4">
+          <div class="border-quote lg:col-span-8">
+            { data[0].quote && <div class="font-serif font-light text-2xl mb-6 leading-[160%]">{ data[0].quote }</div> }
+            { data[0].who && <div class="font-semibold">— { data[0].who }</div> }
+          </div>
+      </div>
+      <div class="grid lg:grid-cols-12 lg:grid-rows-1 gap-4">
+        <div class="lg:col-span-5">
+          <div class="grid lg:grid-cols-1 gap-4">
+              <div class="">
+                <img src={gif.src} width="100%" alt="demo" />
+              </div>
+              <div class="border-quote">
+                { data[3].quote && <div class="font-serif font-light text-2xl mb-6 leading-[160%]">{ data[3].quote }</div> }
+                { data[3].who && <div class="font-semibold">— { data[3].who }</div> }
+              </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7 lg:col-start-6">
+          <div class="grid lg:grid-cols-2 gap-4">
+            <div class="border-quote lg:col-span-2">
+              { data[1].quote && <div class="font-serif font-light text-2xl mb-6 leading-[160%]">{ data[1].quote }</div> }
+              { data[1].who && <div class="font-semibold">— { data[1].who }</div> }
+            </div>
+            <div class="border-quote lg:row-start-2">
+              { data[2].quote && <div class="font-serif font-light text-2xl mb-6 leading-[160%]">{ data[2].quote }</div> }
+              { data[2].who && <div class="font-semibold">— { data[2].who }</div> }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- <Quotes /> -->
+
   </main>
 </Layout>
 
 <style>
   h1 {
-    background: #FFFFFF;
-    background: linear-gradient(180deg,#ffffff 60%, var(--color-highlight) 60%);
+    background: transparent;
+    background: linear-gradient(180deg,transparent 60%, var(--color-highlight) 60%);
+  }
+
+  .border-quote {
+    border: 1px solid var(--color-highlight);
+    border-top-width: 4px;
+    border-bottom-width: 12px;
+    border-left-width: 4px;
+    border-right-width: 12px;
+    padding: 28px;
   }
 </style>
