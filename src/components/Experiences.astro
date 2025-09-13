@@ -17,7 +17,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
             <div class="swiper-slide columns-3xl max-w-3xl">
               <div class="flex flex-col gap-6">
                 { tag && <div class="">{ tag }</div> }
-                { image && <Image src={import(`../assets/projects/${image}`)} alt={ title } /> }
+                { image && <Image src={import(`../assets/projects/${image}.png`)} alt={ title } /> }
                 { title && <div class="">{ title }</div> }
                 { copy && <div class="">{ copy }</div> }
               </div>
