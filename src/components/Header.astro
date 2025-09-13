@@ -3,13 +3,13 @@
 import NavItem from "./NavItem.astro";
 
 const navItems = [
-  { href: '/portfolio/', label: 'Portfolio' },
   { href: '/about-me/', label: 'About Me' },
   { href: '/experience/', label: 'Experience' },
 ];
 ---
 
-<header class="" transition:animate="none">
+
+<header class="lg:sticky lg:top-0 lg:backdrop-blur-sm" transition:animate="none">
   <div class="header-content flex justify-between items-center p-10 pl-4 pr-4">
     <div class="left-section flex items-center gap-4">
       <div>
@@ -28,7 +28,6 @@ const navItems = [
     <div class="right-section">
       <ul class="flex items-center gap-6">
         { navItems.map(item => (<NavItem href={item.href} label={item.label} />)) }
-        <!-- { navItems.map(item => (<NavItem href={item.href} label={item.label} mobile />)) } -->
       </ul>
     </div>
   </div>
@@ -36,3 +35,19 @@ const navItems = [
 
 <style>
 </style>
+
+<script>
+  function fn() {
+    const btn = document.querySelector("#show-menu");
+    const menu = document.querySelector("#mobile-menu");
+
+    const handleClick = () => {
+      menu?.classList.toggle("max-h-0");
+      menu?.classList.toggle("max-h-40");
+    };
+
+    btn?.addEventListener("click", handleClick);
+  }
+
+  window.addEventListener("DOMContentLoaded", fn);
+</script>

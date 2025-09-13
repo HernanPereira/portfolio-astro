@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "App",
+    "image": "unlocking-automation-for-everyone.png",
+    "title": "Unlocking Automation for everyone",
+    "copy": "Research, Product, UX/UI"
+  },
+  {
+    "tag": "WebSite",
+    "image": "a-modern-twist-to-property-accounting.png",
+    "title": "A Modern twist to Property Accounting",
+    "copy": "Research, Branding, UX/UI"
+  },
+  {
+    "tag": "Illustrations",
+    "image": "engaging-users-through-storytelling.png",
+    "title": "Engaging users through Storytelling",
+    "copy": "Research, Branding, UX/UI"
+  },
+  {
+    "tag": "Job challenge",
+    "image": "a-sneak-peek-of-my-brain.png",
+    "title": "A Sneak Peek of my brain",
+    "copy": "Research, Product, UX/UI"
+  }
+]
