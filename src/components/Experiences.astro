@@ -1,14 +1,16 @@
 ---
 import data from '../data/projects.json';
 import { Image } from 'astro:assets';
-
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-components'
-// Remove static import of image folder
+import findOutWhy from '../assets/find-out-why.gif';
 ---
 
 <div class="swiper-body pl-4 opacity-0">
   <div class="swiper">
     <div class="swiper-wrapper">
+      <div class="swiper-slide columns-3xl max-w-3xl">
+        ... a carousel only for 4 items? Everything has an explanation. <a id="open-modal" class="font-bold cursor-pointer underline hover:no-underline" onclick="window.dialog.showModal()">Find out why</a>
+      </div>
+      
       {
         data.map(item => {
           const { tag, image, title, copy } = item;
@@ -25,9 +27,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
           )
         })
       }
-      <div class="swiper-slide columns-3xl max-w-3xl">
-        ... a carousel only for 4 items? Everything has an explanation. <span class="open-modal font-bold cursor-pointer underline hover:no-underline" data-modal-trigger="modal-id">Find out why</span>
-      </div>
     </div>
     <!-- <div class="swiper-pagination"></div> -->
     <div class="swiper-button-prev"></div>
@@ -36,23 +35,57 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
   </div>
 </div>
 
-<Modal id="modal-id" size="full">
-  <ModalHeader>
-    <h4>Modal Title</h4>
-  </ModalHeader>
-  <ModalBody>
-    <p>
-      This is the modal body. You can add any content here.
-    </p>
-  </ModalBody>
-  <!-- <ModalFooter>
-    <Button label="Close" data-modal-close />
-  </ModalFooter> -->
-</Modal>
+<dialog id="dialog" class="modal">
+  <button class="close-modal" onclick='window.dialog.close();'>close modal</button>
+  <main class="columns-6xl max-w-6xl mx-auto">
+    <div class="">
+      <div class="gif-sticky bg-lime-500 w-fit p-4 mx-auto invisible opacity-0">
+        <img src={findOutWhy.src} />
+        <div>gif animado</div>
+      </div>
+      <div class="modal-text-top font-serif font-light text-[52px] leading-[130%]">After 20 years, of course I don’t have more to display—either I didn’t save anything, it doesn’t exist anymore, it’s all under NDA, it’s stuck in a server that no one remembers the password for, the prototypes self-destruct (thank you Invision), it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were</div>
+    </div>
+  </main>
+</dialog>
+
 
 <style>
   .swiper-body{
     /* position: relative; */
+  }
+  dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: none;
+  }
+
+  dialog::backdrop {
+    position: fixed;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    /* background: rgba(255, 255, 255, 1); */
+    background-color: aqua;
+  }
+  dialog .close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  dialog .modal-text-top {
+    padding: 62px 32px 0px 32px;
+  }
+  dialog .gif-sticky {
+    transition: all 1s ease;
   }
 </style>
 
@@ -62,6 +95,58 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
   import 'swiper/css';
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
+  
+  const body = document.body;
+  const dialog = document.querySelector('dialog');
+
+  const gifSticky = document.querySelector('.gif-sticky');
+  const modalTextTop = document.querySelector('.modal-text-top');
+
+  const openModal = document.getElementById('open-modal');
+  const closeModal = document.querySelector('.close-modal');
+
+  // Función para obtener la altura de la ventana
+  function getWindowHeight() {
+    return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  }
+
+  // Variable global para la altura de la ventana
+  let windowHeight = getWindowHeight();
+
+  function addPositionToGif(clientHeightDialog = windowHeight) {
+    (gifSticky as HTMLElement).style.transform = `translateY(${clientHeightDialog + 200}px)`;
+    setTimeout(() => {
+      (gifSticky as HTMLElement).classList.remove('opacity-0');
+      (gifSticky as HTMLElement).classList.remove('invisible');
+    }, 500);
+    
+    dialog?.addEventListener('scroll', () => {
+      if(dialog.scrollTop > 100) {
+        (gifSticky as HTMLElement).style.transform = '';
+        (gifSticky as HTMLElement).classList.add('sticky', 'top-0');
+      }
+    });
+  }
+
+  function checkGifStickyClasses() {
+  }
+
+  openModal?.addEventListener('click', () => {
+    const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
+    body.style.overflow = 'hidden';
+
+    let clientHeightDialog = (dialog as HTMLElement).clientHeight;
+    addPositionToGif(clientHeightDialog);
+    
+    if (modalTextTop && rect && typeof rect.height === 'number') {
+      (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
+    }
+  });
+  
+  closeModal?.addEventListener('click', () => {
+    console.log('close modal');
+    body.style.overflow = 'auto';
+  });
 
   function getContainerMargin() {
     const container = document.getElementById('heading');
@@ -81,6 +166,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
     }
 
     // Crear nueva instancia usando la variable global
+    if (!swiperBody) return;
     swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
       on: {
@@ -115,16 +201,31 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
   }
 
   function handleResize() {
+    // Actualizar windowHeight cuando cambie el tamaño de la ventana
+    const swiperBody = document.querySelector('.swiper-body');
+    if (!swiperBody) return;
+
+    windowHeight = getWindowHeight();
+    
+    // Actualizar swiper
     if (swiper) {
       swiper.params.slidesOffsetBefore = getContainerMargin();
       swiper.params.slidesOffsetAfter = getContainerMargin();
       swiper.update();
     }
   }
+
+
+
+
   
   // Eventos de Astro para la carga inicial y navegación
   ['astro:page-load', 'astro:after-swap'].forEach(event => {
-    document.addEventListener(event, loadSwiper);
+    document.addEventListener(event, () => {
+      loadSwiper();
+      addPositionToGif(windowHeight);
+      handleResize();
+    });
   });  
 
   // Debounce function para mejorar el rendimiento

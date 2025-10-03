@@ -29,10 +29,10 @@ const { description, title } = Astro.props;
 	</head>
 	<body class="font-sans">
 		<div class="body text-black">
-			<Header />
+			<Header transition:animate="none" />
 			<slot />
 			<!-- <Welcome /> -->
-			<Footer />
+			<Footer transition:animate="none"/>
 		</div>
 	</body>
 </html>
