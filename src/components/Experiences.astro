@@ -2,6 +2,9 @@
 import data from '../data/projects.json';
 import { Image } from 'astro:assets';
 import findOutWhy from '../assets/find-out-why.gif';
+import iconClose from '../assets/icons/close.svg';
+import iconPrev from '../assets/icons/arrow-right.svg';
+import iconNext from '../assets/icons/arrow-left.svg';
 ---
 
 <div class="swiper-body pl-4 opacity-0">
@@ -13,15 +16,22 @@ import findOutWhy from '../assets/find-out-why.gif';
       
       {
         data.map(item => {
-          const { tag, image, title, copy } = item;
+          const { tag, image, title, copy, href } = item;
 
           return (
             <div class="swiper-slide columns-3xl max-w-3xl">
-              <div class="flex flex-col gap-6">
-                { tag && <div class="">{ tag }</div> }
-                { image && <Image src={import(`../assets/projects/${image}.png`)} alt={ title } /> }
-                { title && <div class="">{ title }</div> }
-                { copy && <div class="">{ copy }</div> }
+              <div class="card flex flex-col">
+                { tag && <div class="card-tag">{ tag }</div> }
+                { image && <Image class="flex" src={import(`../assets/projects/${image}.png`)} alt={ title } /> }
+                { 
+                  (title || copy) ?
+                  <a href={href}>
+                    <div class="card-text flex flex-col gap-1">
+                      { title && <div class="card-text_title">{ title }</div> }
+                      { copy && <div class="card-text_copy">{ copy }</div> }
+                    </div>
+                  </a> : null
+                }
               </div>
             </div>
           )
@@ -29,17 +39,17 @@ import findOutWhy from '../assets/find-out-why.gif';
       }
     </div>
     <!-- <div class="swiper-pagination"></div> -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="link-animated swiper-button-prev"><img alt="Previus" src={iconPrev.src} /></div>
+    <div class="link-animated swiper-button-next"><img alt="Next" src={iconNext.src} /></div>
     <!-- <div class="swiper-scrollbar"></div> -->
   </div>
 </div>
 
 <dialog id="dialog" class="modal">
-  <button class="close-modal" onclick='window.dialog.close();'>close modal</button>
+  <button class="link-animated close-modal" onclick='window.dialog.close();'><img alt="Close modal" src={iconClose.src} /></button>
   <main class="columns-6xl max-w-6xl mx-auto">
     <div class="">
-      <div class="gif-sticky bg-lime-500 w-fit p-4 mx-auto invisible opacity-0">
+      <div class="gif-sticky bg-lime-500 w-fit p-4 mx-auto hidden">
         <img src={findOutWhy.src} />
         <div>gif animado</div>
       </div>
@@ -53,6 +63,10 @@ import findOutWhy from '../assets/find-out-why.gif';
   .swiper-body{
     /* position: relative; */
   }
+  .swiper-wrapper {
+    padding: 16px 0;
+  }
+
   dialog {
     position: fixed;
     left: 50%;
@@ -72,20 +86,50 @@ import findOutWhy from '../assets/find-out-why.gif';
     /* background: rgba(255, 255, 255, 1); */
     background-color: aqua;
   }
-  dialog .close {
+  dialog .close-modal {
     position: absolute;
     top: 16px;
     right: 16px;
-    background: none;
     border: none;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
+    padding: 8px;
+    outline-color: var(--color-active);
   }
   dialog .modal-text-top {
     padding: 62px 32px 0px 32px;
   }
   dialog .gif-sticky {
     transition: all 1s ease;
+  }
+
+
+  .card {
+    position: relative;
+    box-shadow: 0px 0px 12px 4px rgba(67,67,103,0.2);
+  }
+  .card-tag {
+    background-color: var(--color-highlight);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .card-text {
+    background-color: white;
+    padding: 16px;
+  }
+  .card-text_title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .card-text_copy {
+    font-size: 15px;
+    font-weight: 400;
+    color: #A3A3B2;
   }
 </style>
 
@@ -114,39 +158,56 @@ import findOutWhy from '../assets/find-out-why.gif';
   let windowHeight = getWindowHeight();
 
   function addPositionToGif(clientHeightDialog = windowHeight) {
-    (gifSticky as HTMLElement).style.transform = `translateY(${clientHeightDialog + 200}px)`;
-    setTimeout(() => {
-      (gifSticky as HTMLElement).classList.remove('opacity-0');
-      (gifSticky as HTMLElement).classList.remove('invisible');
-    }, 500);
+    // (gifSticky as HTMLElement).style.transform = `translateY(${clientHeightDialog + 200}px)`;
+    // setTimeout(() => {
+    //   (gifSticky as HTMLElement).classList.remove('opacity-0');
+    //   (gifSticky as HTMLElement).classList.remove('invisible');
+    // }, 500);
     
-    dialog?.addEventListener('scroll', () => {
-      if(dialog.scrollTop > 100) {
-        (gifSticky as HTMLElement).style.transform = '';
-        (gifSticky as HTMLElement).classList.add('sticky', 'top-0');
-      }
-    });
+    // dialog?.addEventListener('scroll', () => {
+    //   if(dialog.scrollTop > 100) {
+    //     (gifSticky as HTMLElement).style.transform = '';
+    //     (gifSticky as HTMLElement).classList.add('sticky', 'top-0');
+    //   }
+    // });
   }
 
   function checkGifStickyClasses() {
   }
 
   openModal?.addEventListener('click', () => {
-    const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
     body.style.overflow = 'hidden';
+    console.log('open modal');
+    // const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
 
-    let clientHeightDialog = (dialog as HTMLElement).clientHeight;
-    addPositionToGif(clientHeightDialog);
+    // let clientHeightDialog = (dialog as HTMLElement).clientHeight;
+    // addPositionToGif(clientHeightDialog);
     
-    if (modalTextTop && rect && typeof rect.height === 'number') {
-      (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
-    }
+    // if (modalTextTop && rect && typeof rect.height === 'number') {
+    //   (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
+    // }
+
+    onLoadDialog()
   });
   
   closeModal?.addEventListener('click', () => {
     console.log('close modal');
     body.style.overflow = 'auto';
   });
+
+
+  // function gifMarginTop() {
+  //   const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
+
+  //   if (modalTextTop && rect && typeof rect.height === 'number') {
+  //     (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
+  //   }
+  // }
+
+  function onLoadDialog() {
+    console.log('onLoadDialog')
+    // gifMarginTop();
+  }
 
   function getContainerMargin() {
     const container = document.getElementById('heading');
@@ -159,6 +220,8 @@ import findOutWhy from '../assets/find-out-why.gif';
 
   function loadSwiper() {
     const swiperBody = document.querySelector('.swiper-body');
+
+    // console.log('swiperBody:: ', swiperBody);
 
     // Destruir la instancia anterior si existe
     if (swiper) {
@@ -180,18 +243,18 @@ import findOutWhy from '../assets/find-out-why.gif';
       slidesPerView: 3.41,
       slidePrevClass: 'opacity-0',
       breakpoints: {
-        // 320: {
-        //   slidesPerView: 2,
-        //   spaceBetween: 20
-        // },
-        // 480: {
-        //   slidesPerView: 3,
-        //   spaceBetween: 30
-        // },
-        // 640: {
-        //   slidesPerView: 4,
-        //   spaceBetween: 40
-        // }
+        375: {
+          slidesPerView: 1.25,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 2.25,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3.41,
+          spaceBetween: 32
+        }
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -218,13 +281,16 @@ import findOutWhy from '../assets/find-out-why.gif';
 
 
 
+  window.addEventListener('load', function() {
+    loadSwiper();
+  });
   
   // Eventos de Astro para la carga inicial y navegación
   ['astro:page-load', 'astro:after-swap'].forEach(event => {
     document.addEventListener(event, () => {
       loadSwiper();
-      addPositionToGif(windowHeight);
-      handleResize();
+      // addPositionToGif(windowHeight);
+      // handleResize();
     });
   });  
 
@@ -255,8 +321,8 @@ import findOutWhy from '../assets/find-out-why.gif';
   // Limpiar los event listeners cuando se desmonte el componente
   document.addEventListener('astro:before-swap', () => {
     window.removeEventListener('resize', debouncedResize);
-    if (swiper) {
-      swiper.destroy(true, true);
-    }
+    // if (swiper) {
+    //   swiper.destroy(true, true);
+    // }
   });
 </script>

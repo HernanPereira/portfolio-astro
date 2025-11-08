@@ -2,10 +2,12 @@
 
 @import "@fontsource/ibm-plex-serif/300.css";
 @import "@fontsource/ibm-plex-serif/400.css";
+@import "@fontsource/ibm-plex-serif/500.css";
 @import "@fontsource/ibm-plex-serif/600.css";
 
 @import "@fontsource/ibm-plex-sans/300.css";
 @import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
 @import "@fontsource/ibm-plex-sans/600.css";
 
 @theme {
@@ -19,4 +21,27 @@
 
 .body {
   font-size: 15px;
+}
+
+.link-animated {
+  background: linear-gradient(to top, var(--color-highlight) 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition:all 0.25s linear;
+}
+.link-animated:hover {
+  background-position: bottom;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+  height: 36px;
+  width: 36px;
+  padding: auto;
+}
+.swiper .swiper-button-prev::after,
+.swiper .swiper-button-next::after {
+  font-size: 20px;
+  color: #000000;
+  content: '';
 }

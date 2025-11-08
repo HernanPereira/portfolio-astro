@@ -1,48 +1,84 @@
 ---
-const {id, open} = Astro.props;
+const { title } = Astro.props;
 ---
 
-<!-- <button onclick={`window.${id}.showModal()`}>{open}</button> -->
+<button class="open-modal">abrir modal</button>
 
-<dialog id=`${id}` class="modal">
-  <form method="dialog">
-    <slot class="close-modal" name="close" />
-  </form>
-  <slot name="main" />
-</dialog>
-
+<div class="modal-overlay hidden">
+  <div class="modal">
+    <button class="close-modal">&times;</button>
+    <slot />
+  </div>
+</div>
 
 <style>
-  dialog {
+  .modal-overlay {
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
 
-  dialog::backdrop {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background: rgba(255, 255, 255, 1);
+  .modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
   }
 </style>
 
 <script>
   const body = document.body;
-  const openModal = document.getElementById('open-modal');
-  const closeModal = document.querySelector('.close-modal');
+  const openModalBtn = document.querySelector('.open-modal');
+  const closeModalBtn = document.querySelector('.close-modal');
+  const modalOverlay = document.querySelector('.modal-overlay');
 
-  openModal?.addEventListener('click', () => {
-    console.log('open modal');
-    body.style.overflow = 'hidden';
+  openModalBtn?.addEventListener('click', () => {
+    modalOverlay?.classList.remove('hidden');
+    body.style.overflow = 'hidden'; // Prevenir scroll en el body
   });
-  
-  closeModal?.addEventListener('click', () => {
-    console.log('close modal');
-    body.style.overflow = 'auto';
+
+  closeModalBtn?.addEventListener('click', () => {
+    modalOverlay?.classList.add('hidden');
+    body.style.overflow = 'auto'; // Restaurar scroll
+  });
+
+  // Cerrar modal cuando se hace click en el overlay
+  modalOverlay?.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.add('hidden');
+      body.style.overflow = 'auto';
+    }
+  });
+
+  // Cerrar modal con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modalOverlay?.classList.contains('hidden')) {
+      modalOverlay?.classList.add('hidden');
+      body.style.overflow = 'auto';
+    }
   });
 </script>

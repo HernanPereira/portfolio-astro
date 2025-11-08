@@ -15,20 +15,12 @@ const isMobile = mobile ? 'movile-nav-item' : 'nav-item';
 ---
 
 <li class="uppercase font-semibold">
-  <a class:list={[isMobile, isActive ? 'active' : '']} href={href}>{label}</a>
+  <a class:list={['link-animated', isMobile, isActive ? 'active' : '']} href={href}>{label}</a>
 </li>
 
 <style>
 .nav-item {
-  background: transparent;
   display: flex;
-  background: linear-gradient(to top, var(--color-highlight) 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: top;
-  transition:all 0.25s linear;
-}
-.nav-item:hover {
-  background-position: bottom;
 }
 .nav-item.active {
   pointer-events: none;
