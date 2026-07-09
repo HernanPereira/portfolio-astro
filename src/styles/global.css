@@ -16,7 +16,11 @@
   --color-highlight: #00FFE0;
   --color-light: #A3A3B2;
   --color-active: #0033FF;
-  --line-height-150: 150%
+  --color-secondary: #50506A;
+  --line-height-130: 130%;
+  --line-height-140: 140%;
+  --line-height-150: 150%;
+  --line-height-160: 160%;
 }
 
 .body {
@@ -33,6 +37,11 @@
   background-position: bottom;
 }
 
+.text-highlight {
+  color: initial;
+  background: linear-gradient(to top, var(--color-highlight) 32%, transparent 32%);
+}
+
 .swiper .swiper-button-prev,
 .swiper .swiper-button-next {
   height: 36px;
@@ -44,4 +53,36 @@
   font-size: 20px;
   color: #000000;
   content: '';
+}
+
+/* details */
+.details {
+  font-size: 20px;
+  line-height: var(--line-height-150);
+}
+.details h1, .details .h1 {
+  font-size: 52px;
+  line-height: var(--line-height-130);
+}
+.details h2, .details .h2 {
+  font-size: 2rem;
+}
+.details h3, .details .h3 {
+  font-size: 40px;
+  line-height: var(--line-height-140);
+}
+.details h4, .details .h4 {
+  font-size: 1.5rem;
+  line-height: var(--line-height-160);
+}
+.details .info {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-secondary);
+  line-height: var(--line-height-150);
+}
+.details .info span {
+  font-weight: 600;
+  color: var(--color-secondary);
+  background: linear-gradient(to bottom, transparent 5px, var(--color-highlight) 5px, var(--color-highlight) 13px, transparent 13px);
 }

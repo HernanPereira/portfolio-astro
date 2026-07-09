@@ -1,17 +1,328 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import automationMain1 from '../assets/projects/fromdoppler/automation_main-1.png';
+import frame01 from '../assets/projects/fromdoppler/frame-01.png';
+import frame02 from '../assets/projects/fromdoppler/frame-02.png';
+import frame03 from '../assets/projects/fromdoppler/frame-03.png';
+import whatDidWeDo from '../assets/projects/fromdoppler/what-did-we-do.png';
+import automationBasics from '../assets/projects/fromdoppler/automation_basics.png';
+import automationFeedback from '../assets/projects/fromdoppler/automation_feedback.png';
+import flows from '../assets/projects/fromdoppler/flows.png';
+import flows2 from '../assets/projects/fromdoppler/flow-2_iterated.png';
+import flows3 from '../assets/projects/fromdoppler/flow-2_iterated.png';
+import iconArrowRight from '../assets/projects/fromdoppler/icon-arrow-right.svg';
+import iconArrowNext from '../assets/next.svg';
 ---
 
 <Layout title="" description="">
-  <main class="flex flex-col pt-20 pb-30 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
+  <main class="details flex flex-col pt-20 pb-8 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
 
-    <div id="" class="container mx-auto pl-4 pr-4">
-      fromDoppler-unlocking-automation-for-everyone
+    <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <h1 class="font-serif font-light mb-8">
+        FromDoppler<br>
+        <span class="text-highlight">Unlocking Automation for everyone</span>
+      </h1>
+      <div class="info italic">
+        <span>*</span> 
+        <strong>Launched:</strong> 
+        August 2018
+      </div>
+    </div>
+    
+
+    <div class="full-width pl-4 pr-4 mb-20 image-ml-auto">
+      <img src={automationMain1.src} alt="" />
     </div>
 
+
+
+    <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <div class="max-w-3xl">
+        <p class="h4 font-serif mb-12">
+          Doppler is an email & marketing platform that provides an omnichannel solution for businesses to create and manage effective marketing campaigns. Its omnichannel approach enables businesses to engage customers through various communication channels, including email, social media, and SMS, creating a seamless customer experience. 
+        </p>
+        <p class="h4 font-serif mb-34">
+          <span class="text-highlight">Although this was not always the case</span>, when I joined the company, <span class="text-highlight">the main emphasis was primarily on classic email marketing.</span>
+        </p>
+
+        <h2 class="h1 font-serif font-light mb-8">
+          My role: the goals
+        </h2>
+        <div class="info italic mb-10">
+          <span>*</span> 
+          <strong>Responsibilities:</strong> 
+          Research, user flows, user stories, user testing, wireframes, prototypes, navigation patterns, design system
+        </div>
+
+        <p class="mb-10">
+          I joined Doppler as the Head of design in the company collaborating closely with product managers, engineers, content strategist, business analyst and stakeholders to take Doppler to the next level.
+        </p>
+        <p class="mb-12">
+          <strong>Refactoring the automation feature was a crucial step in achieving our goal of creating an emerging automation marketing solution</strong> that would enable small businesses to create personalized and targeted messages for their customers. <strong>The existing automation feature was outdated, hard to use, and limited in its capabilities.</strong> 
+        </p>
+        <p class="h3 font-serif font-light">
+          The goal was to create an automation editor that could become functional and scalable enough to take advantage of all the surrounding features inside Doppler while allowing the addition of channels, triggers, conditions.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 mb-32">
+      <img src={frame02.src} alt="" />
+      <img src={frame01.src} alt="" />
+      <img src={frame03.src} alt="" />
+    </div>
+    
+    <div id="" class="container mx-auto text-center pl-4 pr-4 mb-20">
+      <div class="w-5xl mx-auto">
+        <h3 class="h1 font-serif font-light mb-8">Unlocking Automation for everyone:<br /> How we made it easy</h3>
+        <p>In addition to conducting basic competitive research and analyzing qualitative/quantitative data, I collaborated with the customer support team to conduct interviews with small business owners. <strong>Our goal was to build a solid foundation of use cases and translate them into clear pain points and goals.</strong></p>
+        
+        <div class="mt-20">
+          <img src={whatDidWeDo.src} alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div id="" class="container mx-auto pl-4 pr-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <ul>
+            <li class="mb-20">
+              <div class="h3 text-highlight inline-block font-serif font-light mb-2">1.</div>
+              <p class="max-w-sm mb-8">Worked on reducing the workflow to its fundamentals: Trigger, Action, Branch.</p>
+              <p class="max-w-sm">This streamlined approach allowed us to focus on the core of the feature and avoid any deviations.</p>
+            </li>
+            <li class="mb-20">
+              <div class="h3 text-highlight inline-block font-serif font-light mb-2">2.</div>
+              <p class="max-w-sm">Ensured that the automation process was visually clear and easy to understand, with a transparent display of what actions would occur and when, to enhance user confidence in the system</p>
+            </li>
+          </ul>
+        </div>
+        <div class="">
+          <div class="mb-14">
+            <img src={automationBasics.src} alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <ul>
+            <li>
+              <div class="h3 text-highlight inline-block font-serif font-light mb-2">3.</div>
+              <p class="max-w-sm">Providing specific, in-context feedback within the editor to help users resolve any issues that arose during the automation process.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="">
+          <div class="">
+            <img src={automationFeedback.src} alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div id="" class="container mx-auto pl-4 pr-4">
+      <div class="max-w-3xl mb-20">
+        <h3 class="font-serif font-light mb-8">That's it? well...</h3>
+        <ul class="font-serif text-2xl leading-[160%] mb-6">
+          <li class="special-dot special-dot-01 pl-[30px] mb-14">So far users would be able to easily build and comprehend the created journey.</li>
+          <li class="special-dot special-dot-02 pl-[30px]">Now, let's add complexity to the equation:</li>
+        </ul>
+        <div class="">
+          <p class="mb-10">Different starting points result in different settings. Starting points utilize the user's previous activity or the existing settings within the app, if available. However, what happens if there are no previous activity or settings? The same applies to actions like emails or conditionals (branches).</p>
+          <p class="font-serif text-2xl leading-[160%] mb-10">There are numerous user flows to consider, all with the mindset of minimizing any deviation from the user's primary task as much as possible.</p>
+          <p class="mb-10"><strong>First, we differentiated between initial settings and steps settings (actions and branches).</strong> Why? Because it is less costly to ask the user to do something outside of automation when they haven't started building anything yet. It's less burdensome for the user and less resource-intensive in terms of development*.</p>
+          <p class="mb-10 info italic">*Sometimes, it is commonly thought that integrating or reusing functionality in different parts of an application is straightforward when in reality, it is quite far from the truth (modules developed in different technologies, architecture, etc.).</p>
+          <p class="text-highlight inline-block">So, in a simplified manner, we obtained two main flows:</p>
+        </div>
+      </div>
+      <div class="full-width mb-20">
+        <img src={flows.src} alt="" />
+      </div>
+    </div>
+
+
+     <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <div class="max-w-3xl">
+        <div class="">
+          <p class="mb-10"><strong>Later on we iterate Flow 2 to include situations where a step involved multiple actions or a significant amount of information.</strong></p>
+          <p class="mb-10">This adaptability not only improved efficiency in handling various complexities but also contributed to maintaining consistency throughout the editing process. Users could rely on Flow 2 for both stages, enabling a standardized approach, making editing simpler, quicker, and more streamlined.</p>
+        </div>
+      </div>
+      <div class="max-w-3xl">
+        <div class="">
+          <p class="mb-10 before:content-['•']"><strong class="ml-2">Iteration "2. Steps settings flow"</strong></p>
+        </div>
+      </div>
+      <div class="full-width mb-20">
+        <img src={flows2.src} alt="" />
+      </div>
+     </div>
+
+
+     <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <div class="max-w-3xl">
+        <div class="">
+          <p class="mb-10 italic">Let’s see an example ;)</p>
+        </div>
+      </div>
+      <div class="full-width pl-4 pr-4 mb-20">
+        <img src={flows3.src} alt="" />
+      </div>
+     </div>
+
+
+
+     <div id="" class="container mx-auto pl-4 pr-4 mb-34">
+      <div class="max-w-4xl mb-12">
+        <div class="">
+          <p class="mb-4 italic">But despite what we think</p>
+          <h3 class="font-serif font-light mb-6">Users have last word ;)</h3>
+          <p>In our quest to improve the user experience, we conducted moderated user testing sessions throughout the entire process using prototypes in InVision. These sessions were crafted around relevant use cases to pinpoint interface challenges. Below some of the findings and solutions:</p>
+        </div>
+      </div>
+      <div class="full-width">
+        <ul>
+          <li class="border border-black p-8 mb-8">
+            <p class="text-highlight inline-block mb-12"><strong>Issue 1 - Initial Settings Confusion</strong></p>
+            <div class="lg:flex lg:items-stretch">
+              <div class="w-full mb-4 lg:w-1/2 lg:mb-0">
+                <p><strong>Finding:</strong></p>
+                <p>During our early testing, we found that users were often confused by the initial settings in the right panel. They weren't sure what to do next after opening the editor.</p>
+              </div>
+              <div class="hidden lg:min-w-[132px] lg:flex">
+                <img src={iconArrowRight.src} alt="" class="m-0 ml-auto mr-auto" width="24px" />
+              </div>
+              <div class="w-full lg:w-1/2">
+                <p><strong>Solution:</strong></p>
+                <p>We moved initial settings out of the editor. Users now begin by configuring automation settings, providing a clear starting point. Once this is complete, they enter the editor with a focused mindset for content creation, eliminating confusion and enhancing workflow.</p>
+              </div>
+            </div>
+          </li>
+          <li class="border border-black p-8 mb-8">
+            <p class="text-highlight inline-block mb-12"><strong>Issue 2 - Exiting Without Starting Automation</strong></p>
+            <div class="lg:flex lg:items-stretch">
+              <div class="w-full mb-4 lg:w-1/2 lg:mb-0">
+                <p><strong>Finding:</strong></p>
+                <p>We observed that some users were exiting the editor without initiating the automation, thinking that once the last step was finished, there was nothing else to be done. This was a common point of frustration.</p>
+              </div>
+              <div class="hidden lg:min-w-[132px] lg:flex">
+                <img src={iconArrowRight.src} alt="" class="m-0 ml-auto mr-auto" width="24px" />
+              </div>
+              <div class="w-full lg:w-1/2">
+                <p><strong>Solution:</strong></p>
+                <p>We introduced a warning message system to address this issue, offering two clear options for cases when everything was ready to be turned on, yet the user was leaving without starting the automation:
+                  <ul class="mt-6">
+                    <li class="before:content-['a.'] mb-6 pl-6"> "Yes, Start My Automation" - Ensuring users are aware of the pending automation setup.</li>
+                    <li class="before:content-['b.'] pl-6"> "Not Yet, I'll Do It Later" - Recognizing users' flexibility needs, as they might prefer to wait.</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="border border-black p-8">
+            <p class="text-highlight inline-block mb-12"><strong>Issue 3: Lack of Clarity Regarding Delay in Conditionals</strong></p>
+            <div class="lg:flex lg:items-stretch">
+              <div class="w-full mb-4 lg:w-1/2 lg:mb-0">
+                <p><strong>Finding:</strong></p>
+                <p>Users were unclear about delays associated with conditionals, often assuming instant verification of negative conditionals.</p>
+              </div>
+              <div class="hidden lg:min-w-[132px] lg:flex">
+                <img src={iconArrowRight.src} alt="" class="m-0 ml-auto mr-auto" width="24px" />
+              </div>
+              <div class="w-full lg:w-1/2">
+                <p><strong>Solution:</strong></p>
+                <p>We improved clarity through two key changes:
+                  <ul class="mt-6">
+                    <li class="before:content-['a.'] mb-6 pl-6"> Specific Copy: Updated user interface text to explicitly mention delays in negative conditionals. Users are now informed that these conditionals aren't verified instantly, eliminating misunderstandings.</li>
+                    <li class="before:content-['b.'] pl-6"> UI Representation of Delays: Visually represented delays allowing users to see the time duration before subscribers move to the "No" branch when a negative conditional is triggered.</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+     </div>
+
+     <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <div class="max-w-4xl mb-12">
+        <div class="">
+          <h3 class="font-serif font-light mb-9">Crafting a Consistent Experience</h3>
+          <p class="mb-6">Our ultimate goal was to ensure a seamless experience for our users, not just within the immediate context but across the entire ecosystem. To achieve this, we dedicated ourselves to crafting a solid foundation for our design system. </p>
+          <p class="mb-6">Back in the day, the notion of design systems seemed like a far-fetched fairytale. We made it a reality through a collaborative effort between design and technology. We agreed on everything, from conventions to elements and technology. Additionally, we established processes for how the system would be used and updated.</p>
+          <p>It was truly a joint effort based on collaboration, respect, and humility, and I can't be more grateful for the amazing team that I had throughout this journey.</p>
+        </div>
+      </div>
+      <div class="full-width pl-4 pr-4 mb-20">
+        <img src={flows3.src} alt="" />
+      </div>
+     </div>
+
+
+    <div id="" class="container mx-auto text-center pl-4 pr-4 mb-20">
+      <div class="max-w-3xl mx-auto">
+        <h3 class="h1 font-serif font-light mb-8">How did it go?</h3>
+        <p class="font-serif mb-6">After launch, we start tracking two main metrics around adoption and account creation tied to automation</p>
+        <p>Within the <strong>first three months</strong> of launch:</p>
+
+        <div class="mt-20">
+          <img src={whatDidWeDo.src} alt="" />
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Next case study -->
+    <div id="" class="container mx-auto text-center pl-4 pr-4">
+      <div class="flex justify-end">
+        <a href="/proper-ai-a-modern-twist-to-property-accounting" class="flex items-center gap-4 justify-end font-bold underline hover:no-underline">
+        <img src={iconArrowNext.src} alt="Next case study" class="" width="48px" />
+        </a>
+      </div>
+    </div>
 
   </main>
 </Layout>
 
 <style>
+  .special-dot {
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 24px 31px;
+  }
+  .special-dot-01 {
+    background-image: url('/src/assets/projects/fromdoppler/icon_check-circle-outline.svg');
+  }
+  .special-dot-02 {
+    background-image: url('/src/assets/projects/fromdoppler/icon_points-circle-outline.svg');
+  }
 </style>
+
+<script>
+  const imageMlAuto: NodeListOf<HTMLImageElement> | null = document.querySelectorAll('.image-ml-auto img').length > 0
+    ? document.querySelectorAll('.image-ml-auto img') as NodeListOf<HTMLImageElement>
+    : null;
+  const container = document.querySelector('.container');
+  let marginLeft = '0px';
+  if (container) marginLeft = window.getComputedStyle(container).marginLeft;
+
+    function setImagesMarginLeft(images: NodeListOf<HTMLImageElement> | null, marginLeft: string): void {
+      if (!images) return;
+      const ml = parseFloat(marginLeft) || 0;
+      images.forEach((img: HTMLImageElement) => {
+        img.style.marginLeft = `${ml}px`;
+        img.style.width = `${Math.max(0, img.width - ml + 16)}px`;
+      });
+    }
+
+    setImagesMarginLeft(imageMlAuto, marginLeft);
+
+    window.addEventListener('resize', () => {
+      if (container) marginLeft = window.getComputedStyle(container).marginLeft;
+      setImagesMarginLeft(imageMlAuto, marginLeft);
+    });
+</script>

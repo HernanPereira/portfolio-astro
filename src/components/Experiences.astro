@@ -46,15 +46,20 @@ import iconNext from '../assets/icons/arrow-left.svg';
 </div>
 
 <dialog id="dialog" class="modal">
-  <button class="link-animated close-modal" onclick='window.dialog.close();'><img alt="Close modal" src={iconClose.src} /></button>
+  <div class="close-modal sticky top-0 width-full flex justify-end pt-6 pr-10">
+    <button class="link-animated close-modal-button" onclick='window.dialog.close();'>
+      <img alt="Close modal" src={iconClose.src} />
+    </button>
+  </div>
+
   <main class="columns-6xl max-w-6xl mx-auto">
-    <div class="">
-      <div class="gif-sticky bg-lime-500 w-fit p-4 mx-auto hidden">
-        <img src={findOutWhy.src} />
-        <div>gif animado</div>
+      <div class="modal-text-top font-serif font-light text-[52px] leading-[130%] relative -z-10">
+        <p>After 20 years, of course I don't have more to display—either I didn't save anything, it doesn't exist anymore, it's all under NDA, it's stuck in a server that no one remembers the password for, the prototypes self-destruct (thank you Invision), it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were.</p>
+        <div class="gif-sticky bg-lime-500 w-fit p-4 mx-auto">
+          <img src={findOutWhy.src} />
+          <div>gif animado</div>
+        </div>
       </div>
-      <div class="modal-text-top font-serif font-light text-[52px] leading-[130%]">After 20 years, of course I don’t have more to display—either I didn’t save anything, it doesn’t exist anymore, it’s all under NDA, it’s stuck in a server that no one remembers the password for, the prototypes self-destruct (thank you Invision), it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were accidentally overwritten by another project, the client lost access to the original files, I deleted it to protect humanity from its brilliance, the projects were too innovative for anyone to understand, it's stored on a floppy disk that no one remembers how to read, the files were</div>
-    </div>
   </main>
 </dialog>
 
@@ -73,6 +78,7 @@ import iconNext from '../assets/icons/arrow-left.svg';
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    height: 100%;
     max-width: none;
   }
 
@@ -86,10 +92,7 @@ import iconNext from '../assets/icons/arrow-left.svg';
     /* background: rgba(255, 255, 255, 1); */
     background-color: aqua;
   }
-  dialog .close-modal {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+  dialog .close-modal-button {
     border: none;
     font-size: 20px;
     cursor: pointer;
@@ -102,6 +105,8 @@ import iconNext from '../assets/icons/arrow-left.svg';
   dialog .gif-sticky {
     transition: all 1s ease;
   }
+
+
 
 
   .card {
@@ -142,6 +147,7 @@ import iconNext from '../assets/icons/arrow-left.svg';
   
   const body = document.body;
   const dialog = document.querySelector('dialog');
+  const dialogMain = document.querySelector('dialog main');
 
   const gifSticky = document.querySelector('.gif-sticky');
   const modalTextTop = document.querySelector('.modal-text-top');
@@ -155,37 +161,12 @@ import iconNext from '../assets/icons/arrow-left.svg';
   }
 
   // Variable global para la altura de la ventana
-  let windowHeight = getWindowHeight();
+  const windowHeight = getWindowHeight();
 
-  function addPositionToGif(clientHeightDialog = windowHeight) {
-    // (gifSticky as HTMLElement).style.transform = `translateY(${clientHeightDialog + 200}px)`;
-    // setTimeout(() => {
-    //   (gifSticky as HTMLElement).classList.remove('opacity-0');
-    //   (gifSticky as HTMLElement).classList.remove('invisible');
-    // }, 500);
-    
-    // dialog?.addEventListener('scroll', () => {
-    //   if(dialog.scrollTop > 100) {
-    //     (gifSticky as HTMLElement).style.transform = '';
-    //     (gifSticky as HTMLElement).classList.add('sticky', 'top-0');
-    //   }
-    // });
-  }
-
-  function checkGifStickyClasses() {
-  }
+  gifSticky?.classList.add('absolute', `top-${Math.round(windowHeight / 4)}`, 'left-0', 'right-0');
 
   openModal?.addEventListener('click', () => {
     body.style.overflow = 'hidden';
-    console.log('open modal');
-    // const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
-
-    // let clientHeightDialog = (dialog as HTMLElement).clientHeight;
-    // addPositionToGif(clientHeightDialog);
-    
-    // if (modalTextTop && rect && typeof rect.height === 'number') {
-    //   (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
-    // }
 
     onLoadDialog()
   });
@@ -195,18 +176,24 @@ import iconNext from '../assets/icons/arrow-left.svg';
     body.style.overflow = 'auto';
   });
 
-
-  // function gifMarginTop() {
-  //   const rect = gifSticky ? gifSticky.getBoundingClientRect() : null;
-
-  //   if (modalTextTop && rect && typeof rect.height === 'number') {
-  //     (modalTextTop as HTMLElement).style.marginTop = `-${rect.height}px`;
-  //   }
-  // }
-
   function onLoadDialog() {
-    console.log('onLoadDialog')
-    // gifMarginTop();
+    const dialogMainHeight = dialogMain?.clientHeight;
+
+    console.log('open modal:: ', windowHeight);
+    console.log('dialogMainHeight:: ', dialogMainHeight);
+    
+    const handleDialogScroll = () => {
+      const scrollTop = dialog?.scrollTop || 0;
+      const quarterHeight = windowHeight * 0.25;
+      
+      if (scrollTop >= quarterHeight) {
+        console.log('Dialog has scrolled 25% of window height');
+        // Remove listener after triggering once
+        dialog?.removeEventListener('scroll', handleDialogScroll);
+      }
+    };
+
+    dialog?.addEventListener('scroll', handleDialogScroll);
   }
 
   function getContainerMargin() {
@@ -220,8 +207,6 @@ import iconNext from '../assets/icons/arrow-left.svg';
 
   function loadSwiper() {
     const swiperBody = document.querySelector('.swiper-body');
-
-    // console.log('swiperBody:: ', swiperBody);
 
     // Destruir la instancia anterior si existe
     if (swiper) {
@@ -284,12 +269,11 @@ import iconNext from '../assets/icons/arrow-left.svg';
   window.addEventListener('load', function() {
     loadSwiper();
   });
-  
+
   // Eventos de Astro para la carga inicial y navegación
   ['astro:page-load', 'astro:after-swap'].forEach(event => {
     document.addEventListener(event, () => {
       loadSwiper();
-      // addPositionToGif(windowHeight);
       // handleResize();
     });
   });  

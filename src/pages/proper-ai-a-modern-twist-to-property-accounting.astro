@@ -1,17 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import properRebrandMain1 from '../assets/projects/proper/proper_rebrand_main-1.png';
+import iconArrowNext from '../assets/next.svg';
 ---
 
 <Layout title="" description="">
-  <main class="flex flex-col pt-20 pb-30 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
+  <main class="details flex flex-col pt-20 pb-8 border-t-5 border-lime-500 sm:border-purple-500 md:border-blue-100 lg:border-sky-500 xl:border-red-500 2xl:border-blue-500">
 
-    <div id="" class="container mx-auto pl-4 pr-4">
-      proper-ai-a-modern-twist-to-property-accounting
+    <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <h1 class="font-serif font-light mb-8">
+        Proper.ai<br>
+        <span class="text-highlight">A Modern Twist to Property Accounting</span>
+      </h1>
+      <div class="info italic">
+        <span>*</span> 
+        <strong>Launched:</strong> 
+        November 2021
+      </div>
+    </div>
+    
+
+    <div class="full-width pl-4 pr-4 mb-20 image-ml-auto">
+      <img src={properRebrandMain1.src} alt="" />
     </div>
 
+
+
+    <div id="" class="container mx-auto pl-4 pr-4 mb-20">
+      <div class="max-w-3xl">
+        <p class="h4 font-serif mb-12">
+          Proper.ai is a specialized property accounting company that provides efficient and cost-effective financial services for property management businesses. By leveraging automation technology and specialized expertise, Proper.ai can enhance businesses' profit margins and operations. 
+        </p>
+
+        <h2 class="h1 font-serif font-light mb-8">
+          My role: the goals
+        </h2>
+        <div class="info italic mb-10">
+          <span>*</span> 
+          <strong>Responsibilities:</strong> 
+          Research, branding, user stories, user flows, wireframes, prototypes, interactions
+        </div>
+
+        <p class="mb-10">
+          As Proper continued to evolve, we recognized the need for a rebranding effort to better reflect the core values of the brand in our design. As the UX designer leading this effort, I was tasked with creating a visual language that would align with Proper's values and effectively convey its message to our target audience.
+        </p>
+        <p class="h3 font-serif font-light">
+          The goal was to create a brand identity that not only communicated innovation and efficiency but also reflected collaboration and playfulness, while ensuring its impact on the entire Proper ecosystem.
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Next case study -->
+    <div id="" class="container mx-auto text-center pl-4 pr-4">
+      <div class="flex justify-end">
+        <a href="/lander-app-the-power-of-storytelling" class="flex items-center gap-4 justify-end font-bold underline hover:no-underline">
+        <img src={iconArrowNext.src} alt="Next case study" class="" width="48px" />
+        </a>
+      </div>
+    </div>
 
   </main>
 </Layout>
 
 <style>
 </style>
+
+<script>
+  const imageMlAuto: NodeListOf<HTMLImageElement> | null = document.querySelectorAll('.image-ml-auto img').length > 0
+    ? document.querySelectorAll('.image-ml-auto img') as NodeListOf<HTMLImageElement>
+    : null;
+  const container = document.querySelector('.container');
+  let marginLeft = '0px';
+  if (container) marginLeft = window.getComputedStyle(container).marginLeft;
+
+    function setImagesMarginLeft(images: NodeListOf<HTMLImageElement> | null, marginLeft: string): void {
+      if (!images) return;
+      const ml = parseFloat(marginLeft) || 0;
+      images.forEach((img: HTMLImageElement) => {
+        img.style.marginLeft = `${ml}px`;
+        img.style.width = `${Math.max(0, img.width - ml + 16)}px`;
+      });
+    }
+
+    setImagesMarginLeft(imageMlAuto, marginLeft);
+
+    window.addEventListener('resize', () => {
+      if (container) marginLeft = window.getComputedStyle(container).marginLeft;
+      setImagesMarginLeft(imageMlAuto, marginLeft);
+    });
+</script>
